@@ -7,6 +7,7 @@ namespace APISCISA.Models
 {
     public class ProductoModel
     {
+        [Required(ErrorMessage = "El Nombre es Obligatorio")]
         public string? Nombre { get; set; }
 
         public string? Descripcion { get; set; }
