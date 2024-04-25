@@ -1,0 +1,678 @@
+﻿@*@{
+    ViewBag.Title = "About";
+}*@
+
+    
+    @{
+        ViewBag.Title = "ProveedorCombustible";
+        
+    }
+    <h2>ProveedorCombustible</h2>
+    <div class="container-fluid p-5">
+        <style>
+
+                Esquinas redondeadas en la tabla
+                .esquinasRedondeadas {
+                    border-radius: 2rem !important;
+                }
+
+                .vodkarow {
+                    color: #080808;
+                }
+
+                table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
+                table.dataTable thead > tr > td.sorting_asc,
+                table.dataTable thead > tr > td.sorting_desc,
+                table.dataTable thead > tr > td.sorting {
+                    padding-right: 30px;
+                    background: none;
+                    color: #080808;
+                    font-weight: 500;
+                }
+
+                .table-hover tbody tr:hover {
+                    background-color: #dbdbdb;
+                }
+
+                /* Agregar sombra al botón */
+                btnColorVerdeXCF {
+                    background: linear-gradient(#1fc35f, #1a9349);
+                    transition: background 0.15s, transform 0.3s ease-in-out, box-shadow 0.2s !important;
+                    border: 0px solid red !important;
+                    border-radius: 50px;
+                    width: 100px;
+                    font-weight: bold;
+                    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+                }
+
+                /* Cambiar la sombra al pasar el cursor sobre el botón lo resalta */
+                .btnColorVerdeXCF:hover {
+                    background: linear-gradient(#22c160, #17713b) !important;
+                    transform: translateY(-2px) !important;
+                    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.10);
+                }
+
+                .input_label_1 {
+                    font-weight: 400;
+                    opacity: 0.8;
+                    font-size: 13px;
+                }
+
+                /* Estilo para el input dentro del div con la clase "special-input" */
+                .special-input input[type="text"],
+                .special-input select,
+                .special-input textarea {
+                    max-width: 100% !important;
+                    height: 34px;
+                    font-size: 15px
+                }
+
+                .title-header {
+                    transition: transform 0.2s ease-in-out;
+                }
+
+                    .title-header:hover {
+                        transform: translateY(-2px) !important;
+                    }
+
+                .toggle-switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 30px;
+                    cursor: pointer;
+                }
+
+                toggle-switch input[type="checkbox"] {
+                    display: none;
+                }
+
+                .toggle-switch-background {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #ddd;
+                    border-radius: 20px;
+                    box-shadow: inset 0 0 0 2px #ccc;
+                    transition: background-color 0.3s ease-in-out;
+                }
+
+                .toggle-switch-handle {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .toggle-switch::before {
+                    content: "";
+                    position: absolute;
+                    top: -25px;
+                    right: -35px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    color: #aaa;
+                    text-shadow: 1px 1px #fff;
+                    transition: color 0.3s ease-in-out;
+                }
+
+                .toggle-switch input[type="checkbox"]:checked + .toggle-switch-handle {
+                    transform: translateX(45px);
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 3px #05c46b;
+                }
+
+                .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background {
+                    background-color: #05c46b;
+                    box-shadow: inset 0 0 0 2px #04b360;
+                }
+
+                .toggle-switch input[type="checkbox"]:checked + .toggle-switch:before {
+                    content: "On";
+                    color: #05c46b;
+                    right: -15px;
+                }
+
+                .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background .toggle-switch-handle {
+                    transform: translateX(30px);
+                }
+
+                .btn-danger2 {
+                    color: #121016;
+                    background-color: #f8f9fa;
+                    border-color: #f8f9fa;
+                }
+
+                    .btn-danger2:hover {
+                        color: #fff;
+                        background-color: #d92550;
+                        border-color: #d92550;
+                    }
+
+                .btn-circle {
+                    border-radius: 2rem !important;
+                    height: 35px;
+                    width: 35px;
+                }
+
+                .BtnEditar {
+                    transition: transform 0.2s ease-in;
+                    border: 0px solid red;
+                    background: transparent;
+                }
+
+                    .BtnEditar:hover {
+                        transform: scale(1.2);
+                    }
+
+                .badge-success {
+                    background-color: #3ac47d !important;
+                    font-size: 12px !important;
+                }
+
+                .badge-danger {
+                    background-color: #d92550 !important;
+                    font-size: 12px !important;
+                }
+
+                /* Hide the default checkbox */
+                .container2 input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                }
+
+                .container2 {
+                    display: block;
+                    position: relative;
+                    cursor: pointer;
+                    font-size: 20px;
+                    user-select: none;
+                }
+
+                /* Create a custom checkbox */
+                .checkmark {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    height: 1.1em;
+                    width: 1.1em;
+                    background-color: #ebebeb;
+                    transition: all 0.3s;
+                    border-radius: 5px;
+                }
+
+                /* When the checkbox is checked, add a blue background */
+                .container2 input:checked ~ .checkmark {
+                    background-color: #05c46b;
+                    animation: pop 0.5s;
+                    animation-direction: alternate;
+                }
+
+                /* Create the checkmark/indicator (hidden when not checked) */
+                .checkmark:after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                }
+
+                /* Show the checkmark when checked */
+                .container2 input:checked ~ .checkmark:after {
+                    display: block;
+                }
+
+                /* Style the checkmark/indicator */
+                .container2 .checkmark:after {
+                    left: 0.45em;
+                    top: 0.25em;
+                    width: 0.25em;
+                    height: 0.5em;
+                    border: solid white;
+                    border-width: 0 0.15em 0.15em 0;
+                    transform: rotate(45deg);
+                }
+
+                .container {
+                    all: unset !important;
+                    display: grid !important;
+                    place-content: center !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+
+                /*.TablaColor {
+                background-color: #13adf1 !important;
+            }*/
+                .toggle-switch-background {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #f10505;
+                    border-radius: 20px;
+                    box-shadow: inset 0 0 0 2px #b0251b;
+                    transition: background-color 0.3s ease-in-out;
+                }
+
+                .TablaColor {
+                    background-color: #eff1f6 !important;
+                }
+        </style>
+        <!--#endregion-->
+        <!--#region Vincular Hoja de estilo a pagina web-->
+        <link href="~/Content/daterangepicker.css" rel="stylesheet" />
+
+        <!--#endregion-->
+        <!--#region BOTONES DE CONSULTA Y EXPORTAR-->
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+                    <h2 class="font-weight-bold" style="text-transform: capitalize;">
+                        <i class="fa fa-warning" style="margin-right:10px; transform: scale(0.9)"></i>
+                        <!--Catálogo <span style="text-transform: lowercase;">de </span>Forma Farmacéutica
+                        </h2>-->
+                </div>
+            </div>
+            <hr />
+            <br />
+            <div class="row">
+                <button id="btnInsertar" class="btn btn-success btnNuevo ml-3 mb-3 btnColorVerdeXCF"
+                        style="border-radius: 50px; background-color:green; font-weight: bold">
+                    <i class="fa fa-plus-circle" style="margin-right:8px"></i>AGREGAR
+                </button>
+
+            </div>
+
+            <!--#endregion-->
+            <!--#region DATATABLE PRINCIPAL-->
+            <div class="card shadow esquinasRedondeadas col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style="">
+                <div class="card-body col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style="">
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body table-responsive" style="padding-top: 10px; padding-right: 10px; padding-bottom:10px">
+                                            <table class="table vodkarow table_rounded table-bordered table-hover datatable text responsive nowrap" id="TablaProveedorCombustible">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="th TablaColor">Editar</th>
+                                                        <th class="th TablaColor">Activo</th>
+                                                        <th class="th TablaColor" hidden>Identificador</th>
+                                                        <th class="th TablaColor">Clave</th>
+                                                        <th class="th TablaColor">NombreComercial</th>
+                                                        <th class="th TablaColor">NombreFiscal</th>
+                                                        <th class="th TablaColor">RFC</th>
+                                                        <th class="th TablaColor" hidden>Region</th>
+                                                        <th class="th TablaColor" hidden>Calle</th>
+                                                        <th class="th TablaColor" hidden>NoEXT</th>
+                                                        <th class="th TablaColor" hidden>NoINT</th>
+                                                        <th class="th TablaColor" hidden>Colonia</th>
+                                                        <th class="th TablaColor" hidden>CodigoPostal</th>
+                                                        <th class="th TablaColor" hidden>IdPais</th>
+                                                        <th class="th TablaColor" hidden>IdEstado</th>
+                                                        <th class="th TablaColor" hidden>IdMunicipio</th>
+                                                        <th class="th TablaColor" hidden>IdColonia</th>
+                                                        <th class="th TablaColor" hidden>IdLocalidad</th>
+                                                        <th class="th TablaColor" hidden>Referencia</th>
+                                                        <th class="th TablaColor">Contacto</th>
+                                                        <th class="th TablaColor">Telefono</th>
+                                                        <th class="th TablaColor">Email</th>
+                                                        <th class="th TablaColor">DiasCredito</th>
+                                                        <th class="th TablaColor">FechaAlta </th>
+                                                        <th class="th TablaColor">UsuarioAlta </th>
+                                                        <th class="th TablaColor">FechaModifica</th>
+                                                        <th class="th TablaColor">UsuarioModifica</th>
+                                                        <th class="th TablaColor">FechaBaja </th>
+                                                        <th class="th TablaColor">UsuarioBaja </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--#endregion-->
+    <!--#region MODAL-->
+
+    <div id="myModal" class="modal" role="dialog" style="overflow: scroll;">
+        <div class="modal-dialog modal-xl modal-dialog-centered" style="background:#080808">
+            <div class="modal-content" style="background: #fff">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloAgregar">Agregar Proveedor Combustible</h5>
+                    <button type="button" id="CerrarModal" class="btn-close CerrarModal" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <labBtnEditarel class="col-md-4 col-xs-12 control-label" style="display:none" id="editar"><font face="Times New Roman" size="5">Editar Proveedor Combustible</font></labBtnEditarel>
+
+                    </button>
+                </div>
+                <div class="panel-body table-responsive">
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 vertical-line">
+
+                        <fieldset class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style=" border: 2px solid rgba(25,25,25,0.2);" id="ParteDocumentos">
+                            <legend style="width:20%;">Encabezado</legend>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                <br />
+
+                                <div class="form-group">
+
+                                    <div class="col-md-12 col-xs-12" style="display: flex;  justify-content: flex-end;">
+
+                                        <label style="margin-right: 10px;">Activo</label>
+
+                                        <br />
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="checkStatus" checked style="display:none">
+                                            <div class="toggle-switch-background">
+
+                                                <div class="toggle-switch-handle"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <br />
+
+                                @*<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                       <div class="form-group pl-4 pr-4 special-input">
+                                       <label class="input_label_1">Clave</label>
+                                       <input type="text" id="txtClave" placeholder="IngresaClave" class="form-control" maxlength="250" />
+                                    </div>*@
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                    <div class="form-group pl-4 pr-4 special-input">
+                                        <label class="input_label_1">Nombre Comercial</label>
+                                        <input type="text" id="txtNombreComercial" placeholder="Ingresa Nombre Comercial" class="form-control" maxlength="250" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-12">
+                                    <div class="form-group pl-4 pr-4 special-input">
+                                        <label class="input_label_1">Nombre Fiscal</label>
+                                        <input type="text" id="txtNombreFiscal" placeholder="Ingresa Nombre Fiscal" class="form-control" maxlength="250" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-12">
+                                    <div class="form-group pl-4 pr-4 special-input">
+                                        <label class="input_label_1">RFC</label>
+                                        <input type="text" id="txtRFC" placeholder="RFC" class="form-control" maxlength="15" autocomplete="off" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div>
+                        </fieldset>
+
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div> <!--SALTO DE LINEA -->
+                    <!-- Domicilio Fiscal -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 col-xl-6 vertical-line">
+
+                        <fieldset class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style=" border: 2px solid rgba(25,25,25,0.2);" id="ParteConsignee">
+                            <legend style="width:30%;">Domicilio Fiscal</legend>
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 form-row mt-1 pt-1 mb-1 pb-1 mr-1 pr-1">
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <span style="color:red">*</span><label class="etiquetas control-label">Calle</label>
+                                </div>
+                                <div class="col-md-10 col-sm-10 col-lg-10 col-xl-10">
+                                    <input type="text" class="form-control CentrarTexto col-12" id="txtDireccion" maxlength="300" autocomplete="off">
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2">
+
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 form-row mt-1 pt-1 mb-1 pb-1 mr-1 pr-1">
+
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <span style="color:red">*</span><label class="etiquetas control-label">No ext. </label>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 ">
+                                    <input type="text" class="form-control CentrarTexto" id="txtNoExt" placeholder="" onkeyup="numOnly(this)" onblur="numOnly(this)" maxlength="10" autocomplete="off" ;">
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <label class="etiquetas control-label">No int.</label>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2">
+                                    <input type="text" class="form-control CentrarTexto" id="txtNoInt" placeholder="" onkeyup="numOnly(this)" onblur="numOnly(this)" maxlength="10" autocomplete="off" ;">
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 form-row mt-1 pt-1 mb-1 pb-1 mr-1 pr-1">
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+
+                                    <span style="color:red">*</span><label class="etiquetas control-label">C. P. </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+                                    <input type="text" class="form-control CentrarTexto LeaveCP" id="txtCP" placeholder="" onkeyup="numOnly(this)" onblur="numOnly(this)" maxlength="5" autocomplete="off">
+
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 form-row mt-1 pt-1 mb-1 pb-1 mr-1 pr-1">
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+
+                                    <span style="color:red">*</span><label class="etiquetas control-label">Colonia</label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+                                    <select class="selectpicker form-control " id="ComboColonia" data-live-search="true" data-live-search-placeholder="Seleccionar" title="--Seleccione--">
+                                    </select>
+
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 ">
+                                    <input type="text" class="form-control CentrarTexto" id="txtIdColonia" placeholder="" autocomplete="off">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 form-row mt-1 pt-1 mb-1 pb-1 mr-1 pr-1">
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <span style="color:red">*</span><label class="etiquetas control-label">Localidad</label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+                                    <select class="selectpicker form-control " id="ComboLocalidad" disabled data-live-search="true" data-live-search-placeholder="Seleccionar" title="--Seleccione--" autocomplete="off">
+                                    </select>
+
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <span style="color:red">*</span><label class="etiquetas control-label">Municipio</label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+                                    <select class="selectpicker form-control " id="ComboMunicipio" disabled data-live-search="true" data-live-search-placeholder="Seleccionar" title="--Seleccione--" autocomplete="off">
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 form-row mt-1 pt-1 mb-1 pb-1 mr-1 pr-1">
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <span style="color:red">*</span><label class="etiquetas control-label">Estado</label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 col-3 ">
+                                    <select class="selectpicker form-control " id="ComboEstado" disabled data-live-search="true" data-live-search-placeholder="Seleccionar" title="--Seleccione--" autocomplete="off">
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 text-center">
+                                    <span style="color:red">*</span><label class="etiquetas control-label">Pais</label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+                                    <select class="selectpicker form-control " id="ComboPais" disabled data-live-search="true" data-live-search-placeholder="Seleccionar" title="--Seleccione--" autocomplete="off">
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                <br />
+                                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4" style="text-align:center;">
+                                    <label class="etiquetas control-label">Referencias: </label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8" style="text-align:left;">
+                                    <input class="form-control CentrarTexto col-md-12" type="text" id="TxtReferencias" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div> <!--SALTO DE LINEA -->
+
+                        </fieldset>
+                    </div>
+                    <!-- Contacto -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 col-xl-6 vertical-line">
+
+                        <fieldset class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style=" border: 2px solid rgba(25,25,25,0.2);" id="ParteShipper">
+                            <legend style="width:30%;">Contacto</legend>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                <br />
+                                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4" style="text-align:center;">
+                                    <label class="etiquetas control-label">Contacto: </label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8" style="text-align:left;">
+                                    <textarea class="form-control CentrarTexto col-md-12" type="text" id="TxtContacto" style="text-transform:uppercase;height:40px;resize: none;"></textarea>
+                                    <input class="form-control CentrarTexto col-md-12" type="text" id="TxtContacto" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4" style="text-align:center;">
+                                    <label class="etiquetas control-label">Telefono: </label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8" style="text-align:left;">
+                                    <textarea class="form-control CentrarTexto col-md-12" type="text" id="TxtTelefono" onkeyup="numOnly(this)" onblur="numOnly(this)" maxlength="10" style="text-transform:uppercase;height:40px;resize: none;"></textarea>
+                                    <input class="form-control CentrarTexto col-md-12" type="text" id="TxtTelefono" onkeyup="numOnly(this)" onblur="numOnly(this)" maxlength="10" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                <br />
+                                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4" style="text-align:center;">
+                                    <label class="etiquetas control-label">Correo: </label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8" style="text-align:left;">
+                                    <textarea class="form-control CentrarTexto col-md-12" type="text" id="TxtEmail" style="text-transform:uppercase;height:40px;resize: none;"></textarea>
+                                    <input class="form-control CentrarTexto col-md-12" type="text" id="TxtEmail" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div> <SALTO DE LINEA </SALTO>
+                            <!--<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div>--> <!--SALTO DE LINEA -->
+
+                        </fieldset>
+                    </div>
+
+                    <!-- CONSIGNEE -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 col-xl-6 vertical-line">
+
+                        <fieldset class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style=" border: 2px solid rgba(25,25,25,0.2);" id="ParteConsignee">
+                            <legend style="width:30%;">Condiciones</legend>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                <br />
+                                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4" style="text-align:center;">
+                                    <label class="etiquetas control-label">DiasCredito: </label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8" style="text-align:left;">
+                                    <input class="form-control CentrarTexto col-md-12" type="text" id="TxtDiasCredito" onkeyup="numOnly(this)" onblur="numOnly(this)" maxlength="10" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div> <!--SALTO DE LINEA -->
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div> <!--SALTO DE LINEA -->
+
+                        </fieldset>
+                    </div>
+                    @*<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 vertical-line">
+
+                            <fieldset class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12" style=" border: 2px solid rgba(25,25,25,0.2);" id="ParteDocumentos">
+                                <legend style="width:20%;">Encabezado</legend>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                    <br />
+                                    <div class="form-group pl-4 pr-4 special-input">
+                                        <label class="input_label_1">FechaModifica</label>
+                                        <input type="text" id="txtFechaModifica" placeholder="FechaModifica" class="form-control" maxlength="5" />
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12">
+                                        <div class="form-group pl-4 pr-4 special-input">
+                                            <label class="input_label_1">Usuario Modifica</label>
+                                            <input type="text" id="txtUsuarioModifica" placeholder="UsuarioModifica" class="form-control" maxlength="250" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-12">
+                                        <div class="form-group pl-4 pr-4 special-input">
+                                            <label class="input_label_1">Fecha Alta</label>
+                                            <input type="text" id="txtFechaAlta" placeholder="FechaAlta" class="form-control" maxlength="250" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-12">
+                                        <div class="form-group pl-4 pr-4 special-input">
+                                            <label class="input_label_1">Usuario Alta</label>
+                                            <input type="text" id="txtUsuarioAlta" placeholder="UsuarioAlta" class="form-control" maxlength="250" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-12">
+                                        <div class="form-group pl-4 pr-4 special-input">
+                                            <label class="input_label_1">Fecha Baja </label>
+                                            <input type="text" id="txtFechaBaja " placeholder="Fecha Baja " class="form-control" maxlength="250" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-12">
+                                        <div class="form-group pl-4 pr-4 special-input">
+                                            <label class="input_label_1">Usuario Baja </label>
+                                            <input type="text" id="txtUsuarioBaja " placeholder="Usuario Baja" class="form-control" maxlength="250" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div>
+                            </fieldset>
+
+                        </div>*@
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12"><br /></div> <!--SALTO DE LINEA -->
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button class="btn btn-danger pull-left" id="Cancelar">Cancelar</button>
+                    <button class="btn btn-success btnAutorizar ToolStrips " id="btnGuardarCom">Guardar</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="~/Scripts/prueba.js"></script>
